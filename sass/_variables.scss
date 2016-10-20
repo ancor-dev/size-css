@@ -1,0 +1,12 @@
+$offset-sizes: (
+    xs: 10px, // extra small
+    sm: 15px, // small
+    '': 20px, // default
+    md: 25px, // middle
+    lg: 30px, // large
+    el: 40px, // extra large
+) !default;
+
+$font-size-from: 8 !default;
+$font-size-to: 40 !default;
+$font-size-step: 2 !default;
