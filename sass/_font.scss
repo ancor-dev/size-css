@@ -1,0 +1,11 @@
+@mixin generate-fonts($start, $end, $diff) {
+  .fz-#{$start} {
+    font-size: #{$start}px;
+  }
+
+  @if $start < $end {
+    @include generate-fonts(($start + $diff), $end, $diff);
+  }
+}
+
+@include generate-fonts($font-size-from, $font-size-to, $font-size-step);

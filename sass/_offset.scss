@@ -1,0 +1,99 @@
+/*
+ * This file generates `offset*` classes with `margin` and `inset*` with `padding` properties.
+ *
+ * ## Default sizes:
+ *
+ * - xs: 10px // extra small
+ * - sm: 15px // small
+ * -   : 20px // default
+ * - md: 25px // middle
+ * - lg: 30px // large
+ * - el: 40px // extra large
+ *
+ * ## Margin
+ *
+ * - .offset
+ * - .offset-h
+ * - .offset-(xs|sm|md|lg|el)
+ * - .offset-(top|bottom|left|right)
+ * - .offset-(xs|sm|md|lg|el)-(top|bottom|left|right)
+ * - .no-offset
+ * - .no-offset-h
+ * - .no-offset-(top|bottom|left|right)
+ *
+ * ## padding
+ *
+ * - .inset
+ * - .inset-h
+ * - .inset-(xs|sm|md|lg|el)
+ * - .inset-(top|bottom|left|right)
+ * - .inset-(xs|sm|md|lg|el)-(top|bottom|left|right)
+ * - .no-inset
+ * - .no-inset-h
+ * - .no-inset-(top|bottom|left|right)
+ */
+
+$offset-sides: (top, bottom, left, right);
+
+// .(offset|inset)-(top|bottom|left|right)
+// .(offset|inset)-(xs|sm|md|lg|el)-(top|bottom|left|right)
+@each $size in map-keys($offset-sizes) {
+  $size-suffix: if($size != '', '-#{$size}', '');
+
+  @each $side in $offset-sides {
+    .offset#{$size-suffix}-#{$side} {
+      margin-#{$side}: map-get($offset-sizes, $size);
+    }
+    .inset#{$size-suffix}-#{$side} {
+      padding-#{$side}: map-get($offset-sizes, $size);
+    }
+  }
+}
+
+// .(offset|inset)
+// .(offset|inset)-h
+// .(offset|inset)-(xs|sm|md|lg|el)
+@each $size in map-keys($offset-sizes) {
+  $size-suffix: if($size != '', '-#{$size}', '');
+
+  .offset#{$size-suffix} {
+    @extend .offset#{$size-suffix}-top;
+    @extend .offset#{$size-suffix}-bottom;
+  }
+  .offset#{$size-suffix}-h {
+    @extend .offset#{$size-suffix}-left;
+    @extend .offset#{$size-suffix}-right;
+  }
+
+  .inset#{$size-suffix} {
+    @extend .inset#{$size-suffix}-top;
+    @extend .inset#{$size-suffix}-bottom;
+  }
+  .inset#{$size-suffix}-h {
+    @extend .inset#{$size-suffix}-left;
+    @extend .inset#{$size-suffix}-right;
+  }
+}
+
+// .no-(offset|inset)-(top|bottom|left|right)
+@each $side in $offset-sides {
+  .no-offset-#{$side} {
+    margin-#{$side}: 0;
+  }
+  .no-inset-#{$side} {
+    padding-#{$side}: 0;
+  }
+}
+
+// .no-(offset|inset)
+// .no-(offset|inset)-h
+@each $type in (offset inset) {
+  .no-#{$type} {
+    @extend .no-#{$type}-top;
+    @extend .no-#{$type}-bottom;
+  }
+  .no-#{$type}-h {
+    @extend .no-#{$type}-left;
+    @extend .no-#{$type}-right;
+  }
+}

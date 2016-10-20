@@ -1,0 +1,33 @@
+{
+  "name": "size-css",
+  "version": "1.0.0",
+  "description": "Helpful classes for make margin, padding, font-size and some other styles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "script": "npm run css:normal && npm run css:min",
+    "css:normal": "node-sass --output-style expanded --output dist ./sass/size-css.scss",
+    "css:min": "node-sass --output-style compressed --source-map true ./sass/size-css.scss --source-map-contents ./dist/size-css.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ancor-dev/size-css.git"
+  },
+  "keywords": [
+    "size-css",
+    "offset",
+    "inset",
+    "margin",
+    "padding",
+    "font-size"
+  ],
+  "author": "Anton Korniychuk",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ancor-dev/size-css/issues"
+  },
+  "homepage": "https://github.com/ancor-dev/size-css",
+  "devDependencies": {
+    "node-sass": "^3.10.1"
+  }
+}
