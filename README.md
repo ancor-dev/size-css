@@ -1,10 +1,46 @@
 # Size-CSS
 Helpful classes for make margin, padding, font-size and some other styles
 
-## Installation:
-TODO:
 
-## Documentationj:
+Feel free to let me know what else you want added via:
+
+- [Issues](https://github.com/ancor-dev/size-css/issues)
+
+## Installation:
+
+You can use npm for install tha package
+
+    npm install --save size-css
+
+Or just download *.css or *.scss files
+    
+    wget https://raw.githubusercontent.com/ancor-dev/size-css/master/dist/size-css.min.css
+    wget https://raw.githubusercontent.com/ancor-dev/size-css/master/dist/size-css.min.css.map
+    
+## Usage
+
+**Simple usage**
+
+Just include the style
+```html
+<link rel="stylesheet" href="node_modules/size-css/dist/size-css.min.css">
+```
+
+and add css classes where you need.
+```html
+<div>Some text</div>
+<div class="offset-sm-top">...<span class="fz-20">...</span>...</div>
+```
+
+**Customize** (using SASS preprocessor)
+
+1. Copy `size-css/sass/_variables.scss` to your style directory
+2. Update sizes
+3. Import your sizes `@import 'variables';`
+4. Import main size-css file `@import '~size-css/sass/size-css';`
+
+
+## Documentation:
 
 ### Sizes
 
@@ -17,7 +53,7 @@ TODO:
     lg: 30px // large
     el: 40px // extra large
 
-**Vertical offsets:**
+**Vertical offsets(top & bottom):**
 
 - .offset-xs
 - .offset-sm
@@ -26,7 +62,7 @@ TODO:
 - .offset-lg
 - .offset-el
 
-**Horizontal offsets:**
+**Horizontal offsets(left & right):**
 
 - .offset-xs-h
 - .offset-sm-h
@@ -35,7 +71,7 @@ TODO:
 - .offset-lg-h
 - .offset-el-h
 
-**Offset for one side:**
+**Offset for only one side:**
 
 - .offset-xs-(top|bottom|left|right)
 - .offset-sm-(top|bottom|left|right)
