@@ -1,6 +1,6 @@
 {
   "name": "size-css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helpful classes for make margin, padding, font-size and some other styles",
   "main": "index.js",
   "scripts": {
